@@ -50,7 +50,7 @@ void reconnect() {
     // Attempt to connect
     if (client.connect("arduinoClient")) {
       Serial.println("connected");
-      client.subscribe("home/planthealth/2147230");
+      client.subscribe("home/aqua");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -108,7 +108,7 @@ void setup() {
   pinMode(15,OUTPUT);//pump
  pinMode(sensorPin, INPUT);
 //  pinMode(9,OUTPUT);
-  pinMode(11,OUTPUT); //green
+
   pinMode(12,OUTPUT); //red
   pinMode(13,OUTPUT); //buzzer
    myservo.attach(2);
@@ -157,8 +157,6 @@ void loop() {
     }
   else{
     pumpstatus=0;
-    digitalWrite(10,LOW);
-    digitalWrite(11,LOW);
     digitalWrite(12,LOW);
     digitalWrite(13,HIGH);
     delay(100);
